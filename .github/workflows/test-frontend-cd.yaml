@@ -8,12 +8,12 @@ permissions:
   packages: read
 
 jobs:
-  
+
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Vercel
     environment: frontend-prod
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -42,4 +42,8 @@ jobs:
       - name: Publish to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: algokit project run deploy-vercel --project-name 'test-frontend'
+        run: |
+          npm install --global vercel@canary
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod
+          vercel deploy --prebuilt --prod

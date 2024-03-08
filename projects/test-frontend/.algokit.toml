@@ -14,9 +14,4 @@ artifacts = "src/contracts"
 build = { commands = ['npm run build'], description = 'Build frontend' }
 test = { commands = ['npm run test'], description = 'Run frontend tests' }
 lint = { commands = ['npm run lint'], description = 'Lint frontend code' }
-deploy-vercel = { commands = [
-    'npm install --global vercel@canary',
-    'vercel pull --yes --environment=production --token=$VERCEL_TOKEN',
-    'vercel build --prod',
-    'vercel deploy --prebuilt --prod'
-  ], description = 'Deploy to Vercel' }
+
