@@ -3,7 +3,6 @@ name: Validate test-frontend
 on:
   
   workflow_call:
-  pull_request:
   
 
 jobs:
@@ -45,5 +44,4 @@ jobs:
       
 
       - name: Build
-        if: ${{ inputs.run-build }}
         run: algokit project run build --project-name 'test-frontend'
