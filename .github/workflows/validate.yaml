@@ -1,0 +1,18 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+
+jobs:
+  test-contracts-ci:
+    name: Run test-contracts CI
+    uses: ./.github/workflows/test-contracts-ci.yaml
+
+  test-frontend-ci:
+    name: Run test-frontend CI
+    uses: ./.github/workflows/test-frontend-ci.yaml
+

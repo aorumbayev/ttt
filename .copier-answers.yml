@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.0.0-16-gf1b8ca8
+_src_path: gh:algorandfoundation/algokit-fullstack-template
+author_email: altynbek.orumbayev@makerx.com.au
+author_name: Altynbek Orumbayev
+cloud_provider: vercel
+contract_name: hello_world
+deployment_language: python
+preset_name: production
+project_name: test
+

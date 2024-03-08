@@ -1,0 +1,22 @@
+[algokit]
+min_version = "v1.3.0b1"
+
+[generate.import_contract]
+description = "Import a typed client from your smart contracts project"
+path = ".algokit/generators/import_contract"
+
+[project]
+type = "frontend"
+name = 'test-frontend'
+artifacts = "src/contracts"
+
+[project.run]
+build = { commands = ['npm run build'], description = 'Build frontend' }
+test = { commands = ['npm run test'], description = 'Run frontend tests' }
+lint = { commands = ['npm run lint'], description = 'Lint frontend code' }
+deploy-vercel = { commands = [
+    'npm install --global vercel@canary',
+    'vercel pull --yes --environment=production',
+    'vercel build --prod',
+    'vercel deploy --prebuilt --prod'
+  ], description = 'Deploy to Vercel' }

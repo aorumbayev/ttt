@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: false
+
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  test-contracts-release:
+    name: Run test-contracts Release
+    secrets: inherit
+    uses: ./.github/workflows/test-contracts-cd.yaml
+
+  test-frontend-release:
+    name: Run test-frontend Release
+    secrets: inherit
+    uses: ./.github/workflows/test-frontend-cd.yaml
+    needs: backend-release
