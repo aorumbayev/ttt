@@ -1,5 +1,6 @@
 {
   "name": "Validate AlgoKit 'contract' type project(s)",
   "description": "This workflow promotes default validation of algokit projects of type 'contract'.",
-  "iconName": "gear"
+  "iconName": "gear",
+  "categories": ["CI"]
 }
