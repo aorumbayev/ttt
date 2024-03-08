@@ -1,17 +1,14 @@
 name: Pull Request validation
 
-on: [push]
+on: [pull_request]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
-extends:
-  template: .github/workflows/validate-contracts-template.yml
 
 jobs:
-  pool:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  test-contracts-ci:
+    name: Run test-contracts validation
+    uses: ./.github/workflows/test-contracts-ci.yaml
+
+  test-frontend-ci:
+    name: Run test-frontend validation
+    uses: ./.github/workflows/test-frontend-ci.yaml
+

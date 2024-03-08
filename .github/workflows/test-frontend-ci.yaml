@@ -1,16 +1,14 @@
 name: Validate test-frontend
 
 on:
+  
   workflow_call:
-    inputs:
-      run-build:
-        required: false
-        type: boolean
-        default: false
+  pull_request:
+  
 
 jobs:
   validate:
-    runs-on: "ubuntu-latest"
+    runs-on: 'ubuntu-latest'
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -37,11 +35,14 @@ jobs:
       - name: Install dependencies
         run: algokit bootstrap all --project-name 'test-frontend'
 
+      
       - name: Run linters
         run: algokit project run lint --project-name 'test-frontend'
-
+      
+      
       - name: Run unit tests
         run: algokit project run test --project-name 'test-frontend'
+      
 
       - name: Build
         if: ${{ inputs.run-build }}

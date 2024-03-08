@@ -1,11 +1,15 @@
 name: Release test-contracts
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
 
 jobs:
+  
   deploy-testnet:
     runs-on: "ubuntu-latest"
+    
     environment: contract-testnet
     steps:
       - name: Checkout source code

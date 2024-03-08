@@ -2,7 +2,7 @@ name: Validate test-contracts
 
 on:
   workflow_call:
-
+  
 jobs:
   validate:
     runs-on: "ubuntu-latest"
