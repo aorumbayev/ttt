@@ -15,15 +15,8 @@ build = { commands = ['npm run build'], description = 'Build frontend' }
 test = { commands = ['npm run test'], description = 'Run frontend tests' }
 lint = { commands = ['npm run lint'], description = 'Lint frontend code' }
 
-ci-pull-vercel-secrets = { commands = [
-    # 'npm install --global vercel@canary',
-    'vercel pull --yes --environment=production --token=$VERCEL_TOKEN',
-    # 'vercel build --prod',
-    # 'vercel deploy --prebuilt --prod'
-  ], description = 'Deploy to Vercel' }
+
 ci-deploy-vercel = { commands = [
-    'npm install --global vercel@canary',
-    'npm run vercel:pull',
-    'vercel build --prod',
-    'vercel deploy --prebuilt --prod'
+    'npm install --global vercel@latest',
+    'npm run ci:vercel:deploy',
   ], description = 'Deploy to Vercel' }
