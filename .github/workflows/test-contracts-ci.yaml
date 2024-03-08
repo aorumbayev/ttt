@@ -2,7 +2,7 @@ name: Validate test-contracts
 
 on:
   workflow_call:
-  
+
 jobs:
   validate:
     runs-on: "ubuntu-latest"
@@ -47,7 +47,7 @@ jobs:
           algokit project run test --project-name 'test-contracts'
 
       - name: Build smart contracts
-        run: algokit run build --project-name 'test-contracts'
+        run: algokit project run build --project-name 'test-contracts'
 
       - name: Scan TEAL files for issues
         run: algokit project run audit-teal --project-name 'test-contracts'
