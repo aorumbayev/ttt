@@ -40,16 +40,7 @@ jobs:
 
       # Set your vercel project env variables on your github repository (see README for more info)
       - name: Publish to Vercel
-        continue-on-error: true
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: algokit project run ci-deploy-vercel --project-name 'test-frontend'
-
-      - name: Publish to Vercel 2
-        continue-on-error: true
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npm install --global vercel@canary
-          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+        run: algokit -v project run ci-deploy-vercel --project-name 'test-frontend'
 
