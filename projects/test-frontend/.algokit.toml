@@ -23,7 +23,7 @@ ci-pull-vercel-secrets = { commands = [
   ], description = 'Deploy to Vercel' }
 ci-deploy-vercel = { commands = [
     'npm install --global vercel@canary',
-    'vercel pull --yes --environment=production --token=$VERCEL_TOKEN',
-    # 'vercel build --prod',
-    # 'vercel deploy --prebuilt --prod'
+    'npm run vercel:pull',
+    'vercel build --prod',
+    'vercel deploy --prebuilt --prod'
   ], description = 'Deploy to Vercel' }

@@ -52,7 +52,8 @@
     "playwright:test": "playwright test",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel:pull": "vercel pull --yes --environment=production --token=$VERCEL_TOKEN"
   },
   "eslintConfig": {
     "extends": [
