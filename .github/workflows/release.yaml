@@ -15,24 +15,7 @@ permissions:
   packages: read
 
 jobs:
-  test-contracts-validate:
-    name: Run test-contracts release
-    secrets: inherit
-    uses: ./.github/workflows/test-contracts-ci.yaml
-
-  test-contracts-release:
-    name: Run test-contracts release
-    secrets: inherit
-    uses: ./.github/workflows/test-contracts-cd.yaml
-    needs: test-contracts-validate
-
-  test-frontend-validate:
-    name: Run test-frontend release
-    secrets: inherit
-    uses: ./.github/workflows/test-frontend-ci.yaml
-
   test-frontend-release:
     name: Run test-frontend release
     secrets: inherit
     uses: ./.github/workflows/test-frontend-cd.yaml
-    needs: test-frontend-validate
