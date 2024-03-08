@@ -28,4 +28,4 @@ jobs:
     name: Run test-frontend Release
     secrets: inherit
     uses: ./.github/workflows/test-frontend-cd.yaml
-    needs: backend-release
+    needs: test-contracts-release
