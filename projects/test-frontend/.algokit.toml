@@ -18,5 +18,6 @@ lint = { commands = ['npm run lint'], description = 'Lint frontend code' }
 
 ci-deploy-vercel = { commands = [
     'npm install --global vercel@latest',
+    'npm run ci:vercel:pull',
     'npm run ci:vercel:deploy',
   ], description = 'Deploy to Vercel' }
