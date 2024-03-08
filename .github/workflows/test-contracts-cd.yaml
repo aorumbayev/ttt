@@ -3,10 +3,6 @@ name: Release test-contracts
 on:
   workflow_call:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: false
-
 jobs:
   deploy-testnet:
     runs-on: "ubuntu-latest"
