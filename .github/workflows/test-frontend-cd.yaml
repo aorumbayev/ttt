@@ -1,14 +1,7 @@
 name: Release test-frontend
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "docs/**"
-      - "**.md"
-      - ".vscode/**"
-      - ".idea/**"
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -19,16 +12,10 @@ permissions:
   packages: read
 
 jobs:
-  validate:
-    name: Validate frontend(s)
-    uses: ./.github/workflows/frontend-ci.yaml
-
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Vercel
     environment: frontend-prod
-    needs:
-      - validate
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

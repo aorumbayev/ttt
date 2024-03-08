@@ -2,9 +2,6 @@ name: Validate test-contracts
 
 on:
   workflow_call:
-  
-  pull_request:
-  
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
